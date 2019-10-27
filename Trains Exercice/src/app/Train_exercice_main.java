@@ -48,6 +48,10 @@ public class Train_exercice_main {
 			System.out.println(e.getMessage());//imprime el error y la traza
 			e.printStackTrace();
 		}
+		catch(NullPointerException npe) {
+			System.out.println(npe.getMessage());
+			npe.printStackTrace();
+		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());//imprime el error y la traza
 			ex.printStackTrace();

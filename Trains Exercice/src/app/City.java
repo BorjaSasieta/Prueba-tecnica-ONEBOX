@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,13 +28,18 @@ public class City {
 		paths.add(path);
 	}
 	
-	public Map<Integer, City> getDestinationByName(String name){
+	public Map<Integer, City> getDestinationByName(String name) throws NoSuchElementException{
 		Map<Integer, City> ret = new HashMap<Integer, City>();
-		for(Path p : paths) {
-			if(p.getCityDestination().getName() == name) {
-				ret.put(p.getDistance(),p.getCityDestination());
+		try {
+			for(Path p : paths) {
+				if(p.getCityDestination().getName() == name) {
+					ret.put(p.getDistance(),p.getCityDestination());
+				}
 			}
-		}	
+		}
+		catch(NoSuchElementException e) {
+			throw e;
+		}
 		return ret;
 	}
 }

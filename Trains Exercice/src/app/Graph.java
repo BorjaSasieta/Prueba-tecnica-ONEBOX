@@ -23,12 +23,17 @@ public class Graph {
 		}
 		cities.add(city);
 	}
-	public City getByName(String name) {
+	public City getByName(String name) throws NullPointerException {
 		City ret = null;
-		for(int i = 0; i < cities.size(); i++) {
-			if(cities.get(i).getName() == name) {
-				ret = cities.get(i);
+		try {
+			for(int i = 0; i < cities.size(); i++) {
+				if(cities.get(i).getName() == name) {
+					ret = cities.get(i);
+				}
 			}
+		}
+		catch(NullPointerException e) {
+			throw e;
 		}
 		return ret; 
 	}
