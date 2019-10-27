@@ -1,4 +1,4 @@
-package java;
+package app;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,5 +22,14 @@ public class Graph {
 			cities = new ArrayList<City>();
 		}
 		cities.add(city);
+	}
+	public City getByName(String name) {
+		City ret = null;
+		for(int i = 0; i < cities.size(); i++) {
+			if(cities.get(i).getName() == name) {
+				ret = cities.get(i);
+			}
+		}
+		return ret; 
 	}
 }
