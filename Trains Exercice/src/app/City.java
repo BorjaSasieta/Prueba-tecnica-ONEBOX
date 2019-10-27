@@ -27,13 +27,13 @@ public class City {
 		paths.add(path);
 	}
 	
-	public Map<Integer, City> getDestinationByName(String name) {
+	public Map<Integer, City> getDestinationByName(String name){
 		Map<Integer, City> ret = new HashMap<Integer, City>();
 		for(Path p : paths) {
 			if(p.getCityDestination().getName() == name) {
 				ret.put(p.getDistance(),p.getCityDestination());
 			}
-		}		
+		}	
 		return ret;
 	}
 }

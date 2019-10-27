@@ -1,6 +1,7 @@
 package app;
 
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 public class Train_exercice_main {
 
@@ -14,9 +15,42 @@ public class Train_exercice_main {
 			cont += val.entrySet().iterator().next().getValue().getDestinationByName("C").entrySet().iterator().next().getKey();
 			System.out.println("Output#1 " + cont);
 			cont = 0;
+			System.out.println("The distance of the route A-D.");
+			val = g.getByName("A").getDestinationByName("D");
+			cont += val.entrySet().iterator().next().getKey();
+			System.out.println("Output#2 " + cont);
+			cont = 0;
+			System.out.println("The distance of the route A-D-C.");
+			val = g.getByName("A").getDestinationByName("D");
+			cont += val.entrySet().iterator().next().getKey();
+			cont += val.entrySet().iterator().next().getValue().getDestinationByName("C").entrySet().iterator().next().getKey();
+			System.out.println("Output#3 " + cont);
+			cont = 0;
+			System.out.println("The distance of the route A-E-B-C-D.");
+			val = g.getByName("A").getDestinationByName("E");
+			cont += val.entrySet().iterator().next().getKey();
+			val = val.entrySet().iterator().next().getValue().getDestinationByName("B");
+			cont += val.entrySet().iterator().next().getKey();
+			val = val.entrySet().iterator().next().getValue().getDestinationByName("C");
+			cont += val.entrySet().iterator().next().getKey();
+			val = val.entrySet().iterator().next().getValue().getDestinationByName("D");
+			cont += val.entrySet().iterator().next().getKey();
+			System.out.println("Output#4 " + cont);
+			cont = 0;
+			System.out.println("The distance of the route A-E-D.");
+			val = g.getByName("A").getDestinationByName("E");
+			cont += val.entrySet().iterator().next().getKey();
+			cont += val.entrySet().iterator().next().getValue().getDestinationByName("D").entrySet().iterator().next().getKey();
+			System.out.println("Output#5 " + cont);
 		}
-		catch(Exception e) {
-			
+		catch(NoSuchElementException e) {//captura esta excepción
+			System.out.println("NO SUCH ROUTE"); // escribe tambien el valor solicitado en este caso
+			System.out.println(e.getMessage());//imprime el error y la traza
+			e.printStackTrace();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());//imprime el error y la traza
+			ex.printStackTrace();
 		}
 	}
 	
