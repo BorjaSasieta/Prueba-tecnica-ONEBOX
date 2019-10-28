@@ -8,4 +8,4 @@ https://www.adictosaltrabajo.com/2016/02/03/como-reducir-el-codigo-repetitivo-co
 
 puedes ejecutar los unit tests i el programa main en la classe app/Train_exercice_main.java
 
-i el funcionamiento es idéntico a lo pedido.
+y el funcionamiento es idéntico a lo pedido.
